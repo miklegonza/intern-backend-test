@@ -18,8 +18,18 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://myuser:mypassword@db:5432/mydatabase
+      SECRET: EmurgoSecretKey
     ports:
       - "3000:3000"
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /usr/src/app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
 
 volumes:
   db_data:
