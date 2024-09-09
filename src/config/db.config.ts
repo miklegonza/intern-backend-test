@@ -32,9 +32,6 @@ const bootstrap = async () => {
 
 const createUsersTable = async (pool: Pool) => {
     await pool.query(`
-        DROP TABLE IF EXISTS users_books;
-        DROP TABLE IF EXISTS users;
-        DROP TABLE IF EXISTS books;
         CREATE TABLE IF NOT EXISTS users (
             id VARCHAR(50) NOT NULL,
             name VARCHAR(50) NOT NULL,
